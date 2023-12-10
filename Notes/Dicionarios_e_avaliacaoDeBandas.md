@@ -52,3 +52,11 @@ Dictionary<string, List<int>> vendasCarros = new Dictionary<string, List<int>> {
 //declarando variável mediaDeVendas e acessando o elemento bugatti e pegando a média com o método average()
 double mediaDeVendas = vendasCarros["Bugatti Veyron"].Average();
 Console.WriteLine(mediaDeVendas);
+
+O método Any() é usado para verificar se há pelo menos um elemento na lista 
+
+sintaxe
+
+List<int> valoresDaBanda = bandasRegistradas[nomeDaBanda];
+
+    if (valoresDaBanda.Any())

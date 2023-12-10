@@ -258,15 +258,16 @@ void PlayDice()
 }
 PlayDice();
 */
-/*
+
 string mensagemDeBoasVindas = "Boas vindas ao Screen Sound";
 //para criar uma lista usa-se a seguinte sintaxe
 //declara o tipo da lista - nome da lista - instancia nova lista
 //List<string> listasDasBandas = new List<string> { "U2", "Beatles", "Calypso" };
 
-Dictionary<string,List<int>> bandasRegistradas = new Dictionary<string, List<int>>();
-bandasRegistradas.Add("Linkin Park", new List<int>{10,9,6});
-bandasRegistradas.Add("The Beatles", new List<int>());
+Dictionary<string, List<int>> bandasRegistradas = new Dictionary<string, List<int>>();
+bandasRegistradas.Add("Linkin Park", new List<int> { 10, 9, 6 });
+bandasRegistradas.Add("The Beatles", new List<int> { 5, 6, 10, 9, 2 });
+bandasRegistradas.Add("Papa Roach", new List<int>());
 
 void ExibirLogo()
 {
@@ -323,7 +324,7 @@ void ExibirOpcoesDoMenu()
       AvaliarUmaBanda();
       break;
     case 4:
-      Console.WriteLine("Você escolheu a opção: " + opcaoEscolhidaNumerica);
+      ExibirMediaBanda();
       break;
     case -1:
       Console.WriteLine("Tchau Tchau :)");
@@ -358,13 +359,13 @@ void MostrarBandasRegistradas()
 {
   Console.Clear();
   exibirTituloDaOpcao("Exibindo todas as bandas registradas");
-/*
+  /*
   for (int i = 0; i < listasDasBandas.Count; i++)
   {
     Console.WriteLine($"Banda: {listasDasBandas[i]}");
   }
-  
-  foreach(string banda in bandasRegistradas.Keys)
+  */
+  foreach (string banda in bandasRegistradas.Keys)
   {
     Console.WriteLine($"Banda: {banda}");
   }
@@ -379,13 +380,13 @@ void exibirTituloDaOpcao(string titulo)
   //atribundo o valor da quantidade com base no número de caracteres do titulo
   int quantidadeDeCaracteres = titulo.Length;
   //criando uma string vazia e adicionando a quantidade de astericos com base na quantidade de caractere do titulo
-  string asteriscos = string.Empty.PadLeft(quantidadeDeCaracteres,'*');
+  string asteriscos = string.Empty.PadLeft(quantidadeDeCaracteres, '*');
   //exibindo os asteriscos
   Console.WriteLine(asteriscos);
   //exibindo o titulo
   Console.WriteLine(titulo);
   //exibindo os asteriscos
-  Console.WriteLine(asteriscos+"\n");
+  Console.WriteLine(asteriscos + "\n");
 }
 
 void AvaliarUmaBanda()
@@ -395,9 +396,14 @@ void AvaliarUmaBanda()
   //Se não existir, voltar ao menu principal
   Console.Clear();
   exibirTituloDaOpcao("Avaliar banda");
+  Console.WriteLine("\nBandas registradas");
+  foreach (string banda in bandasRegistradas.Keys)
+  {
+    Console.WriteLine($"{banda}");
+  }
   Console.Write("Digite o nome da banda que deseja avaliar: ");
   string nomeDaBanda = Console.ReadLine()!;
-  if(bandasRegistradas.ContainsKey(nomeDaBanda))
+  if (bandasRegistradas.ContainsKey(nomeDaBanda))
   {
     Console.Write($"Qual a nota que a banda {nomeDaBanda} merece? ");
     int nota = int.Parse(Console.ReadLine()!);
@@ -406,7 +412,8 @@ void AvaliarUmaBanda()
     Thread.Sleep(2000);
     Console.Clear();
     ExibirOpcoesDoMenu();
-  }else
+  }
+  else
   {
     Console.WriteLine($"\nA banda {nomeDaBanda} não foi encontrada!");
     Console.WriteLine("\nDigite uma tecla para voltar ao menu principal");
@@ -415,10 +422,70 @@ void AvaliarUmaBanda()
     ExibirOpcoesDoMenu();
   }
 }
+//desafio
+//limpar o terminal
+//exibir o título
+//perguntar qual banda
+//validar se banda existe
+//se exitir exibir média da banda
+void ExibirMediaBanda()
+{
+  Console.Clear();
+  exibirTituloDaOpcao("Exibindo todas as bandas registradas");
+  foreach (string banda in bandasRegistradas.Keys)
+  {
+    Console.WriteLine($"Banda: {banda}");
+  }
+  exibirTituloDaOpcao("Média das notas das bandas");
+  Console.Write("Digite o nome da banda que você quer consultar a média: ");
+  string nomeDaBanda = Console.ReadLine()!;
 
+  if (bandasRegistradas.ContainsKey(nomeDaBanda))
+  {
+    List<int> valoresDaBanda = bandasRegistradas[nomeDaBanda];
+
+    if (valoresDaBanda.Any())
+    {
+      double mediaDaBanda = valoresDaBanda.Average();
+      int mediaConvertida = (int)mediaDaBanda;
+
+      Console.WriteLine("\n\nCalculando média...");
+      Thread.Sleep(2000);
+      Console.Clear();
+      Console.WriteLine($"\nA média da banda {nomeDaBanda} é de: {mediaConvertida}");
+      Console.WriteLine("Aguarde...Voltando ao menu de opções!");
+      Thread.Sleep(3000);
+      Console.Clear();
+      ExibirOpcoesDoMenu();
+    }
+    else
+    {
+      Console.WriteLine($"A lista de valores da banda {nomeDaBanda} está vazia");
+      Console.WriteLine($"Deseja dar uma nota para {nomeDaBanda}? y/n");
+      string userResponse = Console.ReadLine()!;
+      if (userResponse == "y")
+      {
+        AvaliarUmaBanda();
+      }
+      else
+      {
+        Thread.Sleep(3000);
+        Console.Clear();
+        ExibirOpcoesDoMenu();
+      }
+    }
+  }
+  else
+  {
+    Console.WriteLine($"Banda {nomeDaBanda} não encontrada");
+    Thread.Sleep(3000);
+    Console.Clear();
+    ExibirOpcoesDoMenu();
+  }
+
+}
 ExibirOpcoesDoMenu();
 
-*/
 
 
 
@@ -689,7 +756,13 @@ Já no foreach, ao invés de utilizar um loop for com um contador i e acessar os
 //     Console.Clear();
 //     menu();
 // }
+
+
 // menu();
+
+
+
+
 
 //aplicação de quiz
 // Console.WriteLine("Bem-vindo ao QUIZ - Quem sabe, sabe!\n\n");
@@ -738,7 +811,7 @@ Já no foreach, ao invés de utilizar um loop for com um contador i e acessar os
 //   string pass = Console.ReadLine()!;
 //   login(user,pass);
 //   Console.WriteLine($"Usuário: {user}\n Password: {pass}");
-  
+
 // }
 
 // void login(string user, string pass)
@@ -766,13 +839,46 @@ Já no foreach, ao invés de utilizar um loop for com um contador i e acessar os
 Para manipular elementos na lista em C#, é necessário acessar os elementos usando índices ou chaves, por exemplo. É possível adicionar elementos usando o método Add(), remover elementos usando o método Remove() ou alterar elementos diretamente através do seu índice ou chave. Confira abaixo:
 */
 
-Dictionary<string, List<int>> vendasCarros = new Dictionary<string, List<int>> {
-    { "Bugatti Veyron", new List<int> { 10, 15, 12, 8, 5 } },
-    { "Koenigsegg Agera RS", new List<int> { 2, 3, 5, 6, 7 } },
-    { "Lamborghini Aventador", new List<int> { 20, 18, 22, 24, 16 } },
-    { "Pagani Huayra", new List<int> { 4, 5, 6, 5, 4 } },
-    { "Ferrari LaFerrari", new List<int> { 7, 6, 5, 8, 10 } }
-};
+// Dictionary<string, List<int>> vendasCarros = new Dictionary<string, List<int>> {
+//     { "Bugatti Veyron", new List<int> { 10, 15, 12, 8, 5 } },
+//     { "Koenigsegg Agera RS", new List<int> { 2, 3, 5, 6, 7 } },
+//     { "Lamborghini Aventador", new List<int> { 20, 18, 22, 24, 16 } },
+//     { "Pagani Huayra", new List<int> { 4, 5, 6, 5, 4 } },
+//     { "Ferrari LaFerrari", new List<int> { 7, 6, 5, 8, 10 } }
+// };
 
-double mediaDeVendas = vendasCarros["Bugatti Veyron"].Average();
-Console.WriteLine(mediaDeVendas);
+// double mediaDeVendas = vendasCarros["Bugatti Veyron"].Average();
+// Console.WriteLine(mediaDeVendas);
+
+
+// mediaDeVendas = vendasCarros["Koenigsegg Agera RS"].Average();
+// Console.WriteLine(mediaDeVendas);
+
+// mediaDeVendas = vendasCarros["Lamborghini Aventador"].Average();
+// Console.WriteLine(mediaDeVendas);
+
+// mediaDeVendas = vendasCarros["Pagani Huayra"].Average();
+// Console.WriteLine(mediaDeVendas);
+
+// mediaDeVendas = vendasCarros["Ferrari LaFerrari"].Average();
+// Console.WriteLine(mediaDeVendas);
+
+// Dictionary<string,int> players = new (){
+//   {"Roxohq",12},
+//   {"Melphite",22},
+//   {"Ghetis",32},
+// };
+
+// foreach(var player in players)
+// {
+
+//   string nomeDoPlayer = player.Key;
+//   int levelDoPlayer = player.Value;
+//   Console.Write($"\nNome: {nomeDoPlayer} - Level: {levelDoPlayer}");
+
+// }
+
+// int level = players["Roxohq"];
+// Console.WriteLine("\n\nLevel do Roxohq "+level);
+
+
