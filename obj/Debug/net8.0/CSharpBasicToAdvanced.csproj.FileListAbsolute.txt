@@ -1,0 +1,15 @@
+E:\CSharpBasicToAdvanced\obj\Debug\net8.0\CSharpBasicToAdvanced.GeneratedMSBuildEditorConfig.editorconfig
+E:\CSharpBasicToAdvanced\obj\Debug\net8.0\CSharpBasicToAdvanced.AssemblyInfoInputs.cache
+E:\CSharpBasicToAdvanced\obj\Debug\net8.0\CSharpBasicToAdvanced.AssemblyInfo.cs
+E:\CSharpBasicToAdvanced\obj\Debug\net8.0\CSharpBasicToAdvanced.csproj.CoreCompileInputs.cache
+E:\CSharpBasicToAdvanced\obj\Debug\net8.0\CSharpBasicToAdvanced.sourcelink.json
+E:\CSharpBasicToAdvanced\bin\Debug\net8.0\CSharpBasicToAdvanced.exe
+E:\CSharpBasicToAdvanced\bin\Debug\net8.0\CSharpBasicToAdvanced.deps.json
+E:\CSharpBasicToAdvanced\bin\Debug\net8.0\CSharpBasicToAdvanced.runtimeconfig.json
+E:\CSharpBasicToAdvanced\bin\Debug\net8.0\CSharpBasicToAdvanced.dll
+E:\CSharpBasicToAdvanced\bin\Debug\net8.0\CSharpBasicToAdvanced.pdb
+E:\CSharpBasicToAdvanced\obj\Debug\net8.0\CSharpBasicToAdvanced.dll
+E:\CSharpBasicToAdvanced\obj\Debug\net8.0\refint\CSharpBasicToAdvanced.dll
+E:\CSharpBasicToAdvanced\obj\Debug\net8.0\CSharpBasicToAdvanced.pdb
+E:\CSharpBasicToAdvanced\obj\Debug\net8.0\CSharpBasicToAdvanced.genruntimeconfig.cache
+E:\CSharpBasicToAdvanced\obj\Debug\net8.0\ref\CSharpBasicToAdvanced.dll
