@@ -57,6 +57,12 @@ O método Any() é usado para verificar se há pelo menos um elemento na lista
 
 sintaxe
 
-List<int> valoresDaBanda = bandasRegistradas[nomeDaBanda];
+List<int> valoresDaBanda = bandasRegistradas[nomeDaBanda]; //capturando as notas das bandas
 
+
+//verifica se existe valor nessa lista.
     if (valoresDaBanda.Any())
+
+    valoresDaBanda.Average(); //exibe média da nota - método Average();
+
+    
